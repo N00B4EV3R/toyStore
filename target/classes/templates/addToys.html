@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adaugare Jucarie</title>
+</head>
+<body>
+<Style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #f2f2f2; /* culoare de fundal pentru container */
+    border-radius: 20px;
+    padding: 20px; /* adăugarea unui padding de 20px */
+}
+
+.header {
+    background-color: #3498db; /* culoare de fundal pentru header */
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px; /* border radius pentru a rotunji colțurile */
+    color: #ffffff; /* culoare text pentru header */
+}
+
+form {
+    margin-top: 20px;
+    font-size: 20px
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    display: block; /* Face butonul un element de bloc */
+    margin: 0 auto; /* Centrare buton */
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a{
+    text-decoration: none;
+}
+</Style>
+<div class="container">
+    <div class="header">
+        <h2>Adaugare Jucarie</h2>
+        <a href="..">Afisare jucarii</a>
+    </div>
+
+    <form th:action="@{/save}" method="post">
+        <label for="den">Denumire:</label>
+        <input type="text" id="den" name="den" required><br>
+
+        <label for="pret">Pret:</label>
+        <input type="number" id="pret" name="pret" min="0" required><br>
+
+        <label for="varsta">Varsta Recomandata:</label>
+        <input type="number" id="varsta" name="varsta" min="0" required>
+        <Br>
+        <label for="cantitate">Cantitate:</label>
+        <input type="number" id="cantitate" name="cantitate" min="0" required>
+        <br>
+        <label for="pr_vandute">Produse Vandute:</label>
+        <input type="number" id="pr_vandute" name="pr_vandute" min="0" required>
+        <br>
+        <label for="tara">Tara Provenienta:</label>
+        <input type="text" id="tara" name="tara" required>
+        <br>
+        <button type="submit">Adauga</button>
+    </form>
+</div>
+</body>
+</html>

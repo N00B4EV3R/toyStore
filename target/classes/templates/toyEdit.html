@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editeaza Jucarie</title>
+</head>
+<body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        font-size:24px;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #f2f2f2;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .header {
+        background-color: #3498db;
+        padding: 10px;
+        text-align: center;
+        border-radius: 10px;
+        color: #ffffff;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        display: block;
+        margin: 0 auto;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+<div class="container">
+    <div class="header">
+        <h2>Editeaza Jucarie</h2>
+        <a href="..">Afisare jucarii</a>
+    </div>
+
+    <form th:action="@{/save}" method="post" th:object="${toy}">
+        <input type="hidden" name="Id" th:value="${toy.Id}">
+        <label for="den">Denumire:</label>
+        <input type="text" id="den" name="den" th:value="${toy.den}" required>
+        <br>
+        <label for="pret">Pret:</label>
+        <input type="number" id="pret" name="pret" min="0" th:value="${toy.pret}" required>
+        <br>
+        <label for="varsta">Varsta Recomandata:</label>
+        <input type="number" id="varsta" name="varsta" min="0" th:value="${toy.varsta}" required>
+        <Br>
+        <label for="cantitate">Cantitate:</label>
+        <input type="number" id="cantitate" name="cantitate" min="0" th:value="${toy.cantitate}" required>
+        <br>
+        <label for="pr_vandute">Produse Vandute:</label>
+        <input type="number" id="pr_vandute" name="pr_vandute" min="0" th:value="${toy.pr_vandute}" required>
+        <br>
+        <label for="tara">Tara Provenienta:</label>
+        <input type="text" id="tara" name="tara" th:value="${toy.tara}" required>
+        <br>
+        <button type="submit">Editeaza</button>
+    </form>
+</div>
+</body>
+</html>
